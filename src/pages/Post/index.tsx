@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../../services/api";
 import { IPost } from "../Home";
+import { PostContent } from "./components/PostContent";
 import { PostHeader } from "./components/PostHeader";
 
 const username = import.meta.env.VITE_GITHUB_USERNAME;
@@ -32,6 +33,7 @@ export function PostPage() {
   return (
     <>
       <PostHeader postData={post} isLoading={isLoading} />
+      {!isLoading && <PostContent content={post.body} />}
     </>
   );
 }
